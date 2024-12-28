@@ -27,22 +27,27 @@ public class Item
         }
         else
         {
-            if (Quality > 0)
-            {
-                DecreaseQuality();
-            }
+            UpdateQualityAsOtherItem();
+        }
+    }
+    
+    private void UpdateQualityAsOtherItem()
+    {
+        if (Quality > 0)
+        {
+            DecreaseQuality();
+        }
 
-            SellIn -= 1;
+        SellIn -= 1;
 
-            if (SellIn >= 0)
-            {
-                return;
-            }
+        if (SellIn >= 0)
+        {
+            return;
+        }
         
-            if (Quality > 0)
-            {
-                DecreaseQuality();
-            }
+        if (Quality > 0)
+        {
+            DecreaseQuality();
         }
     }
     
