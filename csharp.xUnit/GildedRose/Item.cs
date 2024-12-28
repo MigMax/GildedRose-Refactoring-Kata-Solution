@@ -21,6 +21,10 @@ public class Item
         {
             UpdateQualityAsAgedBrie();
         }
+        else if (NameIs(BackstagePasses))
+        {
+            UpdateQualityAsBackstagePasses();
+        }
         else
         {
             if (NameIsNot(AgedBrie) && NameIsNot(BackstagePasses))
@@ -82,6 +86,31 @@ public class Item
                     IncreaseQuality();
                 }
             }
+        }
+    }
+    
+    private void UpdateQualityAsBackstagePasses()
+    {
+        if (Quality < 50)
+        {
+            IncreaseQuality();
+
+            if (SellIn < 11 && Quality < 50)
+            {
+                IncreaseQuality();
+            }
+
+            if (SellIn < 6 && Quality < 50)
+            {
+                IncreaseQuality();
+            }
+        }
+
+        SellIn -= 1;
+
+        if (SellIn < 0)
+        {
+            DecreaseQualityByCurrentQuality();
         }
     }
     
