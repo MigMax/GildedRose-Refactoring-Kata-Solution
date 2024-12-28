@@ -6,11 +6,15 @@ public class Item
     public int SellIn { get; set; }
     public int Quality { get; set; }
 
+    private const string AgedBrie = "Aged Brie";
+    private const string Sulfuras = "Sulfuras, Hand of Ragnaros";
+    private const string BackstagePasses = "Backstage passes to a TAFKAL80ETC concert";
+    
     public void UpdateQuality()
     {
-        if (NameIsNot("Aged Brie") && NameIsNot("Backstage passes to a TAFKAL80ETC concert"))
+        if (NameIsNot(AgedBrie) && NameIsNot(BackstagePasses))
         {
-            if (Quality > 0 && NameIsNot("Sulfuras, Hand of Ragnaros"))
+            if (Quality > 0 && NameIsNot(Sulfuras))
             {
                 DecreaseQuality();
             }
@@ -21,7 +25,7 @@ public class Item
             {
                 IncreaseQuality();
 
-                if (NameIs("Backstage passes to a TAFKAL80ETC concert"))
+                if (NameIs(BackstagePasses))
                 {
                     if (SellIn < 11 && Quality < 50)
                     {
@@ -36,33 +40,35 @@ public class Item
             }
         }
 
-        if (NameIsNot("Sulfuras, Hand of Ragnaros"))
+        if (NameIsNot(Sulfuras))
         {
             SellIn -= 1;
         }
 
-        if (SellIn < 0)
+        if (SellIn >= 0)
         {
-            if (NameIsNot("Aged Brie"))
+            return;
+        }
+        
+        if (NameIsNot(AgedBrie))
+        {
+            if (NameIsNot(BackstagePasses))
             {
-                if (NameIsNot("Backstage passes to a TAFKAL80ETC concert"))
+                if (Quality > 0 && NameIsNot(Sulfuras))
                 {
-                    if (Quality > 0 && NameIsNot("Sulfuras, Hand of Ragnaros"))
-                    {
-                        DecreaseQuality();
-                    }
-                }
-                else
-                {
-                    DecreaseQualityByCurrentQuality();
+                    DecreaseQuality();
                 }
             }
             else
             {
-                if (Quality < 50)
-                {
-                    IncreaseQuality();
-                }
+                DecreaseQualityByCurrentQuality();
+            }
+        }
+        else
+        {
+            if (Quality < 50)
+            {
+                IncreaseQuality();
             }
         }
     }
