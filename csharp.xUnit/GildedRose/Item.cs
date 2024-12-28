@@ -12,6 +12,11 @@ public class Item
     
     public void UpdateQuality()
     {
+        if (NameIs(Sulfuras))
+        {
+            return;
+        }
+        
         if (NameIs(AgedBrie))
         {
             UpdateQualityAsAgedBrie();
@@ -79,7 +84,7 @@ public class Item
             }
         }
     }
-
+    
     private void UpdateQualityAsAgedBrie()
     {
         if (Quality < 50)
