@@ -27,64 +27,21 @@ public class Item
         }
         else
         {
-            if (NameIsNot(AgedBrie) && NameIsNot(BackstagePasses))
+            if (Quality > 0)
             {
-                if (Quality > 0 && NameIsNot(Sulfuras))
-                {
-                    DecreaseQuality();
-                }
-            }
-            else
-            {
-                if (Quality < 50)
-                {
-                    IncreaseQuality();
-
-                    if (NameIs(BackstagePasses))
-                    {
-                        if (SellIn < 11 && Quality < 50)
-                        {
-                            IncreaseQuality();
-                        }
-
-                        if (SellIn < 6 && Quality < 50)
-                        {
-                            IncreaseQuality();
-                        }
-                    }
-                }
+                DecreaseQuality();
             }
 
-            if (NameIsNot(Sulfuras))
-            {
-                SellIn -= 1;
-            }
+            SellIn -= 1;
 
             if (SellIn >= 0)
             {
                 return;
             }
         
-            if (NameIsNot(AgedBrie))
+            if (Quality > 0)
             {
-                if (NameIsNot(BackstagePasses))
-                {
-                    if (Quality > 0 && NameIsNot(Sulfuras))
-                    {
-                        DecreaseQuality();
-                    }
-                }
-                else
-                {
-                    DecreaseQualityByCurrentQuality();
-                }
-            }
-            else
-            {
-                if (Quality < 50)
-                {
-                    IncreaseQuality();
-                }
+                DecreaseQuality();
             }
         }
     }
