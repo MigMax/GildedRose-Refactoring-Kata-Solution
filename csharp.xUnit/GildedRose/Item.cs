@@ -12,47 +12,13 @@ public class Item
     
     public void UpdateQuality()
     {
-        if (NameIsNot(AgedBrie) && NameIsNot(BackstagePasses))
+        if (NameIs(AgedBrie))
         {
-            if (Quality > 0 && NameIsNot(Sulfuras))
-            {
-                DecreaseQuality();
-            }
+            UpdateQualityAsAgedBrie();
         }
         else
         {
-            if (Quality < 50)
-            {
-                IncreaseQuality();
-
-                if (NameIs(BackstagePasses))
-                {
-                    if (SellIn < 11 && Quality < 50)
-                    {
-                        IncreaseQuality();
-                    }
-
-                    if (SellIn < 6 && Quality < 50)
-                    {
-                        IncreaseQuality();
-                    }
-                }
-            }
-        }
-
-        if (NameIsNot(Sulfuras))
-        {
-            SellIn -= 1;
-        }
-
-        if (SellIn >= 0)
-        {
-            return;
-        }
-        
-        if (NameIsNot(AgedBrie))
-        {
-            if (NameIsNot(BackstagePasses))
+            if (NameIsNot(AgedBrie) && NameIsNot(BackstagePasses))
             {
                 if (Quality > 0 && NameIsNot(Sulfuras))
                 {
@@ -61,15 +27,71 @@ public class Item
             }
             else
             {
-                DecreaseQualityByCurrentQuality();
+                if (Quality < 50)
+                {
+                    IncreaseQuality();
+
+                    if (NameIs(BackstagePasses))
+                    {
+                        if (SellIn < 11 && Quality < 50)
+                        {
+                            IncreaseQuality();
+                        }
+
+                        if (SellIn < 6 && Quality < 50)
+                        {
+                            IncreaseQuality();
+                        }
+                    }
+                }
+            }
+
+            if (NameIsNot(Sulfuras))
+            {
+                SellIn -= 1;
+            }
+
+            if (SellIn >= 0)
+            {
+                return;
+            }
+        
+            if (NameIsNot(AgedBrie))
+            {
+                if (NameIsNot(BackstagePasses))
+                {
+                    if (Quality > 0 && NameIsNot(Sulfuras))
+                    {
+                        DecreaseQuality();
+                    }
+                }
+                else
+                {
+                    DecreaseQualityByCurrentQuality();
+                }
+            }
+            else
+            {
+                if (Quality < 50)
+                {
+                    IncreaseQuality();
+                }
             }
         }
-        else
+    }
+
+    private void UpdateQualityAsAgedBrie()
+    {
+        if (Quality < 50)
         {
-            if (Quality < 50)
-            {
-                IncreaseQuality();
-            }
+            IncreaseQuality();
+        }
+        
+        SellIn -= 1;
+        
+        if (SellIn < 0 && Quality < 50)
+        {
+            IncreaseQuality();
         }
     }
 
