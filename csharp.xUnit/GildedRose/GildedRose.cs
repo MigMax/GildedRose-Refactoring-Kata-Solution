@@ -16,7 +16,7 @@ public class GildedRose(IList<Item> Items)
                 {
                     if (currentItem.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        currentItem.Quality = currentItem.Quality - 1;
+                        currentItem.Quality -= 1;
                     }
                 }
             }
@@ -24,7 +24,7 @@ public class GildedRose(IList<Item> Items)
             {
                 if (currentItem.Quality < 50)
                 {
-                    currentItem.Quality = currentItem.Quality + 1;
+                    currentItem.Quality += 1;
 
                     if (currentItem.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
@@ -32,7 +32,7 @@ public class GildedRose(IList<Item> Items)
                         {
                             if (currentItem.Quality < 50)
                             {
-                                currentItem.Quality = currentItem.Quality + 1;
+                                currentItem.Quality += 1;
                             }
                         }
 
@@ -40,7 +40,7 @@ public class GildedRose(IList<Item> Items)
                         {
                             if (currentItem.Quality < 50)
                             {
-                                currentItem.Quality = currentItem.Quality + 1;
+                                currentItem.Quality += 1;
                             }
                         }
                     }
@@ -49,7 +49,7 @@ public class GildedRose(IList<Item> Items)
 
             if (currentItem.Name != "Sulfuras, Hand of Ragnaros")
             {
-                currentItem.SellIn = currentItem.SellIn - 1;
+                currentItem.SellIn -= 1;
             }
 
             if (currentItem.SellIn < 0)
@@ -62,20 +62,20 @@ public class GildedRose(IList<Item> Items)
                         {
                             if (currentItem.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                currentItem.Quality = currentItem.Quality - 1;
+                                currentItem.Quality -= 1;
                             }
                         }
                     }
                     else
                     {
-                        currentItem.Quality = currentItem.Quality - currentItem.Quality;
+                        currentItem.Quality -= currentItem.Quality;
                     }
                 }
                 else
                 {
                     if (currentItem.Quality < 50)
                     {
-                        currentItem.Quality = currentItem.Quality + 1;
+                        currentItem.Quality += 1;
                     }
                 }
             }
