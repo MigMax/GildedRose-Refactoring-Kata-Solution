@@ -10,11 +10,11 @@ public class GildedRose(IList<Item> Items)
         {
             var currentItem = Items[i];
             
-            if (currentItem.Name != "Aged Brie" && currentItem.Name != "Backstage passes to a TAFKAL80ETC concert")
+            if (ItemNameIsNot(currentItem, "Aged Brie") && ItemNameIsNot(currentItem, "Backstage passes to a TAFKAL80ETC concert"))
             {
                 if (currentItem.Quality > 0)
                 {
-                    if (currentItem.Name != "Sulfuras, Hand of Ragnaros")
+                    if (ItemNameIsNot(currentItem, "Sulfuras, Hand of Ragnaros"))
                     {
                         currentItem.Quality -= 1;
                     }
@@ -26,7 +26,7 @@ public class GildedRose(IList<Item> Items)
                 {
                     currentItem.Quality += 1;
 
-                    if (currentItem.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (ItemNameIs(currentItem, "Backstage passes to a TAFKAL80ETC concert"))
                     {
                         if (currentItem.SellIn < 11)
                         {
@@ -47,20 +47,20 @@ public class GildedRose(IList<Item> Items)
                 }
             }
 
-            if (currentItem.Name != "Sulfuras, Hand of Ragnaros")
+            if (ItemNameIsNot(currentItem, "Sulfuras, Hand of Ragnaros"))
             {
                 currentItem.SellIn -= 1;
             }
 
             if (currentItem.SellIn < 0)
             {
-                if (currentItem.Name != "Aged Brie")
+                if (ItemNameIsNot(currentItem, "Aged Brie"))
                 {
-                    if (currentItem.Name != "Backstage passes to a TAFKAL80ETC concert")
+                    if (ItemNameIsNot(currentItem, "Backstage passes to a TAFKAL80ETC concert"))
                     {
                         if (currentItem.Quality > 0)
                         {
-                            if (currentItem.Name != "Sulfuras, Hand of Ragnaros")
+                            if (ItemNameIsNot(currentItem, "Sulfuras, Hand of Ragnaros"))
                             {
                                 currentItem.Quality -= 1;
                             }
@@ -80,5 +80,15 @@ public class GildedRose(IList<Item> Items)
                 }
             }
         }
+    }
+
+    private static bool ItemNameIs(Item item, string name)
+    {
+        return item.Name == name;
+    }
+    
+    private static bool ItemNameIsNot(Item item, string name)
+    {
+        return !ItemNameIs(item, name);
     }
 }
