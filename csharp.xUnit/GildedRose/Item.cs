@@ -38,7 +38,7 @@ public class Item
             DecreaseQuality();
         }
 
-        SellIn -= 1;
+        DecreaseSellIn();
 
         if (SellIn >= 0)
         {
@@ -68,7 +68,7 @@ public class Item
             }
         }
 
-        SellIn -= 1;
+        DecreaseSellIn();
 
         if (SellIn < 0)
         {
@@ -82,8 +82,8 @@ public class Item
         {
             IncreaseQuality();
         }
-        
-        SellIn -= 1;
+
+        DecreaseSellIn();
         
         if (SellIn < 0 && Quality < 50)
         {
@@ -99,6 +99,11 @@ public class Item
     private void IncreaseQuality()
     {
         Quality += 1;
+    }
+    
+    private void DecreaseSellIn()
+    {
+        SellIn -= 1;
     }
 
     private void DecreaseQuality()
