@@ -40,12 +40,7 @@ public class Item
 
         DecreaseSellIn();
 
-        if (SellIn >= 0)
-        {
-            return;
-        }
-        
-        if (Quality > 0)
+        if (SellIn < 0 && Quality > 0)
         {
             DecreaseQuality();
         }
