@@ -95,12 +95,7 @@ public class Item
     {
         return Name == name;
     }
-
-    private bool NameIsNot(string name)
-    {
-        return !NameIs(name);
-    }
-
+    
     private void IncreaseQuality()
     {
         Quality += 1;
