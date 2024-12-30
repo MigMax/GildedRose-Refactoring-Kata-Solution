@@ -13,7 +13,7 @@ public class GildedRoseTest
     [Fact]
     public void Sulfuras_Should_NotUpdateState()
     {
-        GivenItem(Item.CreateSulfuras(2, 2));
+        GivenItem(Item.Create(ItemType.Sulfuras, 2, 2));
         
         UpdatingItem();
         
@@ -23,7 +23,7 @@ public class GildedRoseTest
     [Fact]
     public void Backstage_Should_DecreaseSellInOnce_And_SoldOutQuality()
     {
-        GivenItem(Item.CreateBackStagePasses(0, 45));
+        GivenItem(Item.Create(ItemType.BackStagePasses, 0, 45));
 
         UpdatingItem();
 
@@ -33,7 +33,7 @@ public class GildedRoseTest
     [Fact]
     public void Backstage_Pass_Should_DecreaseSellInOnce_And_IncreaseQualityOnce()
     {
-        GivenItem(Item.CreateBackStagePasses(10, 49));
+        GivenItem(Item.Create(ItemType.BackStagePasses, 10, 49));
 
         UpdatingItem();
         
@@ -43,7 +43,7 @@ public class GildedRoseTest
     [Fact]
     public void Backstage_Pass_Should_DecreaseSellInOnce_And_IncreaseQualityTwice()
     {
-        GivenItem(Item.CreateBackStagePasses(10, 45));
+        GivenItem(Item.Create(ItemType.BackStagePasses, 10, 45));
         
         UpdatingItem();
         
@@ -53,7 +53,7 @@ public class GildedRoseTest
     [Fact]
     public void Backstage_Pass_Should_DecreaseSellInOnce_And_IncreaseQualityThreeTimes()
     {
-        GivenItem(Item.CreateBackStagePasses(1, 45));
+        GivenItem(Item.Create(ItemType.BackStagePasses, 1, 45));
         
         UpdatingItem();
         
@@ -63,7 +63,7 @@ public class GildedRoseTest
     [Fact]
     public void Backstage_Pass_Should_OnlyDecreaseSellInOnce()
     {
-        GivenItem(Item.CreateBackStagePasses(1, 50));
+        GivenItem(Item.Create(ItemType.BackStagePasses, 1, 50));
         
         UpdatingItem();
         
@@ -73,7 +73,7 @@ public class GildedRoseTest
     [Fact]
     public void AgedBrie_Should_OnlyDecreaseSellInOnce()
     {
-        GivenItem(Item.CreateAgedBrie(2, 50));
+        GivenItem(Item.Create(ItemType.AgedBrie, 2, 50));
         
         UpdatingItem();
         
@@ -83,7 +83,7 @@ public class GildedRoseTest
     [Fact]
     public void AgedBrie_Should_DecreaseSellInOnce_And_IncreaseQualityOnce()
     {
-        GivenItem(Item.CreateAgedBrie(2, 48));
+        GivenItem(Item.Create(ItemType.AgedBrie, 2, 48));
         
         UpdatingItem();
         
@@ -93,7 +93,7 @@ public class GildedRoseTest
     [Fact]
     public void AgedBrie_Should_DecreaseSellInOnce_And_IncreaseQualityTwice()
     {
-        GivenItem(Item.CreateAgedBrie(0, 48));
+        GivenItem(Item.Create(ItemType.AgedBrie, 0, 48));
         
         UpdatingItem();
         
@@ -103,7 +103,7 @@ public class GildedRoseTest
     [Fact]
     public void ManaCake_Should_OnlyDecreaseSellInOnce()
     {
-        GivenItem(Item.CreateManaCake(0, -1));
+        GivenItem(Item.Create(ItemType.ManaCake, 0, -1));
 
         UpdatingItem();
         
@@ -113,7 +113,7 @@ public class GildedRoseTest
     [Fact]
     public void ManaCake_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
     {
-        GivenItem(Item.CreateManaCake(0, 2));
+        GivenItem(Item.Create(ItemType.ManaCake, 0, 2));
         
         UpdatingItem();
         
@@ -123,7 +123,7 @@ public class GildedRoseTest
     [Fact]
     public void ManaCake_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
     {
-        GivenItem(Item.CreateManaCake(1, 2));
+        GivenItem(Item.Create(ItemType.ManaCake, 1, 2));
         
         UpdatingItem();
         
@@ -134,7 +134,7 @@ public class GildedRoseTest
     [Fact]
     public void Elixir_Should_OnlyDecreaseSellInOnce()
     {
-        GivenItem(Item.CreateElixir(0, -1));
+        GivenItem(Item.Create(ItemType.Elixir, 0, -1));
 
         UpdatingItem();
         
@@ -144,7 +144,7 @@ public class GildedRoseTest
     [Fact]
     public void Elixir_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
     {
-        GivenItem(Item.CreateElixir(0, 2));
+        GivenItem(Item.Create(ItemType.Elixir, 0, 2));
         
         UpdatingItem();
         
@@ -154,7 +154,7 @@ public class GildedRoseTest
     [Fact]
     public void Elixir_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
     {
-        GivenItem(Item.CreateElixir(1, 2));
+        GivenItem(Item.Create(ItemType.Elixir, 1, 2));
         
         UpdatingItem();
         
@@ -164,7 +164,7 @@ public class GildedRoseTest
     [Fact]
     public void DexterityVest_Should_OnlyDecreaseSellInOnce()
     {
-        GivenItem(Item.CreateDexterityVest(0, -1));
+        GivenItem(Item.Create(ItemType.DexterityVest, 0, -1));
 
         UpdatingItem();
         
@@ -174,7 +174,7 @@ public class GildedRoseTest
     [Fact]
     public void DexterityVest_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
     {
-        GivenItem(Item.CreateDexterityVest(0, 2));
+        GivenItem(Item.Create(ItemType.DexterityVest, 0, 2));
         
         UpdatingItem();
         
@@ -184,7 +184,7 @@ public class GildedRoseTest
     [Fact]
     public void DexterityVest_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
     {
-        GivenItem(Item.CreateDexterityVest(1, 2));
+        GivenItem(Item.Create(ItemType.DexterityVest, 1, 2));
         
         UpdatingItem();
         

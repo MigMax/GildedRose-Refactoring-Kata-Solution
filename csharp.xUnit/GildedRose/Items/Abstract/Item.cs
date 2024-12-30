@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using System;
+
+namespace GildedRoseKata;
 
 public abstract class Item
 {
@@ -42,34 +44,18 @@ public abstract class Item
     {
         Quality -= 1;
     }
-    
-    public static Item CreateAgedBrie(int sellIn, int quality)
+
+    public static Item Create(ItemType itemType, int sellIn, int quality)
     {
-        return new AgedBrie(sellIn, quality);
-    }
-    
-    public static Item CreateBackStagePasses(int sellIn, int quality)
-    {
-        return new BackstagePasses(sellIn, quality);
-    }
-    
-    public static Item CreateSulfuras(int sellIn, int quality)
-    {
-        return new Sulfuras(sellIn, quality);
-    }
-    
-    public static Item CreateElixir(int sellIn, int quality)
-    {
-        return new Elixir(sellIn, quality);
-    }
-    
-    public static Item CreateDexterityVest(int sellIn, int quality)
-    {
-        return new DexterityVest(sellIn, quality);
-    }
-    
-    public static Item CreateManaCake(int sellIn, int quality)
-    {
-        return new ManaCake(sellIn, quality);
+        return itemType switch
+        {
+            ItemType.AgedBrie => new AgedBrie(sellIn, quality),
+            ItemType.BackStagePasses => new BackstagePasses(sellIn, quality),
+            ItemType.Sulfuras => new Sulfuras(sellIn, quality),
+            ItemType.Elixir => new Elixir(sellIn, quality),
+            ItemType.DexterityVest => new DexterityVest(sellIn, quality),
+            ItemType.ManaCake => new ManaCake(sellIn, quality),
+            _ => throw new ArgumentException("Invalid ItemType", nameof(itemType))
+        };
     }
 }

@@ -11,16 +11,16 @@ public class Program
 
         IList<Item> items = new List<Item>
         {
-            Item.CreateDexterityVest(10, 20),
-            Item.CreateAgedBrie(2, 0),
-            Item.CreateElixir(5, 7),
-            Item.CreateSulfuras(0, 80),
-            Item.CreateSulfuras(-1, 80),
-            Item.CreateBackStagePasses(15, 20),
-            Item.CreateBackStagePasses(10, 49),
-            Item.CreateBackStagePasses(5, 49),
+            Item.Create(ItemType.DexterityVest, 10, 20),
+            Item.Create(ItemType.AgedBrie, 2, 0),
+            Item.Create(ItemType.Elixir, 5, 7),
+            Item.Create(ItemType.Sulfuras, 0, 80),
+            Item.Create(ItemType.Sulfuras, -1, 80),
+            Item.Create(ItemType.BackStagePasses, 15, 20),
+            Item.Create(ItemType.BackStagePasses, 10, 49),
+            Item.Create(ItemType.BackStagePasses, 5, 49),
             // this conjured item does not work properly yet
-            Item.CreateManaCake(3, 6),
+            Item.Create(ItemType.ManaCake, 3, 6),
         };
 
         var app = new GildedRose(items);

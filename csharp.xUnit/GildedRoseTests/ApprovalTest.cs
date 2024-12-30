@@ -16,7 +16,7 @@ public class ApprovalTest
     [Fact]
     public Task Foo()
     {
-        Item[] items = { Item.CreateManaCake(0, 0)};
+        Item[] items = { Item.Create(ItemType.ManaCake, 0, 0)};
         GildedRose app = new GildedRose(items);
         app.UpdateQuality();
         
