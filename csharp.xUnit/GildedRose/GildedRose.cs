@@ -2,11 +2,11 @@
 
 namespace GildedRoseKata;
 
-public class GildedRose(IList<Item> Items)
+public class GildedRose(IList<Item> items)
 {
     public void UpdateQuality()
     {
-        foreach (var item in Items)
+        foreach (var item in items)
         {
             item.UpdateQuality();
         }

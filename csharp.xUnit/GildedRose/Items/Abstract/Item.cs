@@ -1,12 +1,12 @@
 ﻿namespace GildedRoseKata;
 
-public class Item
+public abstract class Item
 {
-    public string Name { get; init; }
-    public int SellIn { get; set; }
-    public int Quality { get; set; }
+    public string Name { get; }
+    public int SellIn { get; private set; }
+    public int Quality { get; protected set; }
 
-    public Item(string name, int sellIn, int quality)
+    protected Item(string name, int sellIn, int quality)
     {
         Name = name;
         SellIn = sellIn;
@@ -58,8 +58,18 @@ public class Item
         return new Sulfuras(sellIn, quality);
     }
     
-    public static Item Create(string name, int sellIn, int quality)
+    public static Item CreateElixir(int sellIn, int quality)
     {
-        return new Item(name, sellIn, quality);
+        return new Elixir(sellIn, quality);
+    }
+    
+    public static Item CreateDexterityVest(int sellIn, int quality)
+    {
+        return new DexterityVest(sellIn, quality);
+    }
+    
+    public static Item CreateManaCake(int sellIn, int quality)
+    {
+        return new ManaCake(sellIn, quality);
     }
 }

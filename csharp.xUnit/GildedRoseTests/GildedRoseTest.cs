@@ -101,9 +101,9 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Other_Should_OnlyDecreaseSellInOnce()
+    public void ManaCake_Should_OnlyDecreaseSellInOnce()
     {
-        GivenItem(Item.Create("Conjured Mana Cake", 0, -1));
+        GivenItem(Item.CreateManaCake(0, -1));
 
         UpdatingItem();
         
@@ -111,9 +111,9 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Other_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
+    public void ManaCake_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
     {
-        GivenItem(Item.Create("Conjured Mana Cake", 0, 2));
+        GivenItem(Item.CreateManaCake(0, 2));
         
         UpdatingItem();
         
@@ -121,17 +121,76 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Other_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
+    public void ManaCake_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
     {
-        GivenItem(Item.Create("Conjured Mana Cake", 1, 2));
+        GivenItem(Item.CreateManaCake(1, 2));
         
         UpdatingItem();
         
         ItemShouldMatch("Conjured Mana Cake", 0, 1);
     }
+    
+    
+    [Fact]
+    public void Elixir_Should_OnlyDecreaseSellInOnce()
+    {
+        GivenItem(Item.CreateElixir(0, -1));
 
+        UpdatingItem();
+        
+        ItemShouldMatch("Elixir of the Mongoose", -1, -1);
+    }
+    
+    [Fact]
+    public void Elixir_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
+    {
+        GivenItem(Item.CreateElixir(0, 2));
+        
+        UpdatingItem();
+        
+        ItemShouldMatch("Elixir of the Mongoose", -1, 0);
+    }
+    
+    [Fact]
+    public void Elixir_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
+    {
+        GivenItem(Item.CreateElixir(1, 2));
+        
+        UpdatingItem();
+        
+        ItemShouldMatch("Elixir of the Mongoose", 0, 1);
+    }
+    
+    [Fact]
+    public void DexterityVest_Should_OnlyDecreaseSellInOnce()
+    {
+        GivenItem(Item.CreateDexterityVest(0, -1));
 
-
+        UpdatingItem();
+        
+        ItemShouldMatch("+5 Dexterity Vest", -1, -1);
+    }
+    
+    [Fact]
+    public void DexterityVest_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
+    {
+        GivenItem(Item.CreateDexterityVest(0, 2));
+        
+        UpdatingItem();
+        
+        ItemShouldMatch("+5 Dexterity Vest", -1, 0);
+    }
+    
+    [Fact]
+    public void DexterityVest_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
+    {
+        GivenItem(Item.CreateDexterityVest(1, 2));
+        
+        UpdatingItem();
+        
+        ItemShouldMatch("+5 Dexterity Vest", 0, 1);
+    }
+    
     private void GivenItem(Item item)
     {
         _items = [item];
