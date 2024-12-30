@@ -11,7 +11,7 @@ public class GildedRoseTest
     private GildedRose _sut;
     
     [Fact]
-    public void Sulfuras1()
+    public void Sulfuras_Should_NotUpdateState()
     {
         GivenItem(Item.CreateSulfuras(2, 2));
         
@@ -21,7 +21,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Backstage1_Pass_In_All_Condition()
+    public void Backstage_Should_DecreaseSellInOnce_And_SoldOutQuality()
     {
         GivenItem(Item.CreateBackStagePasses(0, 45));
 
@@ -31,7 +31,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Backstage4_Pass_In_1()
+    public void Backstage_Pass_Should_DecreaseSellInOnce_And_IncreaseQualityOnce()
     {
         GivenItem(Item.CreateBackStagePasses(10, 49));
 
@@ -41,7 +41,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Backstage4_Pass_In_1_2()
+    public void Backstage_Pass_Should_DecreaseSellInOnce_And_IncreaseQualityTwice()
     {
         GivenItem(Item.CreateBackStagePasses(10, 45));
         
@@ -51,7 +51,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Backstage2_Passe_In_1_2_3()
+    public void Backstage_Pass_Should_DecreaseSellInOnce_And_IncreaseQualityThreeTimes()
     {
         GivenItem(Item.CreateBackStagePasses(1, 45));
         
@@ -61,7 +61,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Backstage3_Pass_In_None_Condition()
+    public void Backstage_Pass_Should_OnlyDecreaseSellInOnce()
     {
         GivenItem(Item.CreateBackStagePasses(1, 50));
         
@@ -71,7 +71,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void AgedBrie_Pass_In_None_Condition()
+    public void AgedBrie_Should_OnlyDecreaseSellInOnce()
     {
         GivenItem(Item.CreateAgedBrie(2, 50));
         
@@ -81,7 +81,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void AgedBrie_Pass_In_1()
+    public void AgedBrie_Should_DecreaseSellInOnce_And_IncreaseQualityOnce()
     {
         GivenItem(Item.CreateAgedBrie(2, 48));
         
@@ -91,7 +91,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void AgedBrie_Pass_In_1_2()
+    public void AgedBrie_Should_DecreaseSellInOnce_And_IncreaseQualityTwice()
     {
         GivenItem(Item.CreateAgedBrie(0, 48));
         
@@ -101,7 +101,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Other_Pass_In_Pass_In_None_Condition()
+    public void Other_Should_OnlyDecreaseSellInOnce()
     {
         GivenItem(Item.Create("Conjured Mana Cake", 0, -1));
 
@@ -111,7 +111,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Other_Pass_In_Pass_In_All_Conditions()
+    public void Other_Should_DecreaseSellInOnce_And_DecreaseQualityTwice()
     {
         GivenItem(Item.Create("Conjured Mana Cake", 0, 2));
         
@@ -121,7 +121,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Other_Pass_In_Pass_In_1()
+    public void Other_Should_DecreaseSellInOnce_And_DecreaseQualityOnce()
     {
         GivenItem(Item.Create("Conjured Mana Cake", 1, 2));
         
