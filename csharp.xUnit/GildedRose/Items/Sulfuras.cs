@@ -1,6 +1,8 @@
-﻿namespace GildedRoseKata;
+﻿using GildedRoseKata.Constantes;
 
-public class Sulfuras(int sellIn, int quality) : Item("Sulfuras, Hand of Ragnaros", sellIn, quality)
+namespace GildedRoseKata;
+
+public class Sulfuras(int sellIn, int quality) : Item(ItemNames.Sulfuras, sellIn, quality)
 {
     public override void UpdateQuality()
     {

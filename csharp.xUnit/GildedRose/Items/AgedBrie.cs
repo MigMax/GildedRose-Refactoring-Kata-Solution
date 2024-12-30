@@ -1,6 +1,8 @@
-﻿namespace GildedRoseKata;
+﻿using GildedRoseKata.Constantes;
 
-public class AgedBrie(int sellIn, int quality) : Item("Aged Brie", sellIn, quality)
+namespace GildedRoseKata;
+
+public class AgedBrie(int sellIn, int quality) : Item(ItemNames.AgedBrie, sellIn, quality)
 {
     public override void UpdateQuality()
     {

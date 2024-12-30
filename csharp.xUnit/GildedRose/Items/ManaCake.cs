@@ -1,3 +1,5 @@
-﻿namespace GildedRoseKata;
+﻿using GildedRoseKata.Constantes;
 
-public class ManaCake(int sellIn, int quality) : Item("Conjured Mana Cake", sellIn, quality);
+namespace GildedRoseKata;
+
+public class ManaCake(int sellIn, int quality) : Item(ItemNames.ManaCake, sellIn, quality);

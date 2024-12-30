@@ -1,3 +1,5 @@
-﻿namespace GildedRoseKata;
+﻿using GildedRoseKata.Constantes;
 
-public class Elixir(int sellIn, int quality) : Item("Elixir of the Mongoose", sellIn, quality);
+namespace GildedRoseKata;
+
+public class Elixir(int sellIn, int quality) : Item(ItemNames.Elixir, sellIn, quality);

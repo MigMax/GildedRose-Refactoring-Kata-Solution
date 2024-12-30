@@ -1,6 +1,8 @@
-﻿namespace GildedRoseKata;
+﻿using GildedRoseKata.Constantes;
 
-public class BackstagePasses(int sellIn, int quality) : Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality)
+namespace GildedRoseKata;
+
+public class BackstagePasses(int sellIn, int quality) : Item(ItemNames.BackstagePasses, sellIn, quality)
 {
     public override void UpdateQuality()
     {
