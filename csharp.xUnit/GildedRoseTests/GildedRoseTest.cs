@@ -7,178 +7,146 @@ namespace GildedRoseTests;
 
 public class GildedRoseTest
 {
+    private List<Item> _items;
+    private GildedRose _sut;
+    
     [Fact]
     public void Sulfuras1()
     {
-        IList<Item> items = new List<Item> {
-            Item.CreateSulfuras(2, 2)
-        };
+        GivenItem(Item.CreateSulfuras(2, 2));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-
-        ItemShouldMatch("Sulfuras, Hand of Ragnaros", 2, 2, items[0]);
+        ItemShouldMatch("Sulfuras, Hand of Ragnaros", 2, 2);
     }
     
     [Fact]
     public void Backstage1_Pass_In_All_Condition()
     {
-        IList<Item> items = new List<Item> { 
-            Item.CreateBackStagePasses(0, 45)
-        };
-        
-        GildedRose app = new GildedRose(items);
-        
-        app.UpdateQuality();
+        GivenItem(Item.CreateBackStagePasses(0, 45));
 
-        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", -1, 0, items[0]);
+        UpdatingItem();
+
+        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", -1, 0);
     }
     
     [Fact]
     public void Backstage4_Pass_In_1()
     {
-        IList<Item> items = new List<Item> { 
-            Item.CreateBackStagePasses(10, 49)
-        };
+        GivenItem(Item.CreateBackStagePasses(10, 49));
+
+        UpdatingItem();
         
-        GildedRose app = new GildedRose(items);
-        
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 9, 50, items[0]);
+        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 9, 50);
     }
     
     [Fact]
     public void Backstage4_Pass_In_1_2()
     {
-        IList<Item> items = new List<Item> {
-            Item.CreateBackStagePasses(10, 45)
-        };
+        GivenItem(Item.CreateBackStagePasses(10, 45));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 9, 47, items[0]);
+        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 9, 47);
     }
     
     [Fact]
     public void Backstage2_Passe_In_1_2_3()
     {
-        IList<Item> items = new List<Item> {
-            Item.CreateBackStagePasses(1, 45)
-        };
+        GivenItem(Item.CreateBackStagePasses(1, 45));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 0, 48, items[0]);
+        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 0, 48);
     }
     
     [Fact]
     public void Backstage3_Pass_In_None_Condition()
     {
-        IList<Item> items = new List<Item> {
-            Item.CreateBackStagePasses(1, 50)
-        };
+        GivenItem(Item.CreateBackStagePasses(1, 50));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 0, 50, items[0]);
+        ItemShouldMatch("Backstage passes to a TAFKAL80ETC concert", 0, 50);
     }
     
     [Fact]
     public void AgedBrie_Pass_In_None_Condition()
     {
-        IList<Item> items = new List<Item> {
-            Item.CreateAgedBrie(2, 50)
-        };
+        GivenItem(Item.CreateAgedBrie(2, 50));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Aged Brie", 1, 50, items[0]);
+        ItemShouldMatch("Aged Brie", 1, 50);
     }
     
     [Fact]
     public void AgedBrie_Pass_In_1()
     {
-        IList<Item> items = new List<Item> { 
-            Item.CreateAgedBrie(2, 48)
-        };
+        GivenItem(Item.CreateAgedBrie(2, 48));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Aged Brie", 1, 49, items[0]);
+        ItemShouldMatch("Aged Brie", 1, 49);
     }
     
     [Fact]
     public void AgedBrie_Pass_In_1_2()
     {
-        IList<Item> items = new List<Item> { 
-            Item.CreateAgedBrie(0, 48)
-        };
+        GivenItem(Item.CreateAgedBrie(0, 48));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Aged Brie", -1, 50, items[0]);
+        ItemShouldMatch("Aged Brie", -1, 50);
     }
     
     [Fact]
     public void Other_Pass_In_Pass_In_None_Condition()
     {
-        IList<Item> items = new List<Item> {
-            Item.Create("Conjured Mana Cake", 0, -1)
-        };
+        GivenItem(Item.Create("Conjured Mana Cake", 0, -1));
+
+        UpdatingItem();
         
-        GildedRose app = new GildedRose(items);
-        
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Conjured Mana Cake", -1, -1, items[0]);
+        ItemShouldMatch("Conjured Mana Cake", -1, -1);
     }
     
     [Fact]
     public void Other_Pass_In_Pass_In_All_Conditions()
     {
-        IList<Item> items = new List<Item> { 
-            Item.Create("Conjured Mana Cake", 0, 2)
-        };
+        GivenItem(Item.Create("Conjured Mana Cake", 0, 2));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Conjured Mana Cake", -1, 0, items[0]);
+        ItemShouldMatch("Conjured Mana Cake", -1, 0);
     }
     
     [Fact]
     public void Other_Pass_In_Pass_In_1()
     {
-        IList<Item> items = new List<Item> { 
-            Item.Create("Conjured Mana Cake", 1, 2)
-        };
+        GivenItem(Item.Create("Conjured Mana Cake", 1, 2));
         
-        GildedRose app = new GildedRose(items);
+        UpdatingItem();
         
-        app.UpdateQuality();
-        
-        ItemShouldMatch("Conjured Mana Cake", 0, 1, items[0]);
+        ItemShouldMatch("Conjured Mana Cake", 0, 1);
     }
 
-    private static void ItemShouldMatch(string name, int sellIn, int quality, Item item)
+
+
+    private void GivenItem(Item item)
     {
-        item.Name.Should().Be(name);
-        item.SellIn.Should().Be(sellIn);
-        item.Quality.Should().Be(quality);
+        _items = [item];
+        _sut = new GildedRose(_items);
+    }
+    
+    private void UpdatingItem()
+    {
+        _sut.UpdateQuality();
+    }
+    
+    private void ItemShouldMatch(string name, int sellIn, int quality)
+    {
+        _items[0].Name.Should().Be(name);
+        _items[0].SellIn.Should().Be(sellIn);
+        _items[0].Quality.Should().Be(quality);
     }
 }
