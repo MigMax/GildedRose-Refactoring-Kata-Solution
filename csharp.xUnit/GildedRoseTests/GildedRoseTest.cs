@@ -296,4 +296,76 @@ public class GildedRoseTest
             Quality = 50
         });
     }
+    
+    [Fact]
+    public void Other_Pass_In_Pass_In_None_Condition()
+    {
+        IList<Item> items = new List<Item> { 
+            new Item
+            {
+                Name = "Conjured Mana Cake", 
+                SellIn = 0, 
+                Quality = -1
+            }
+        };
+        
+        GildedRose app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Should().BeEquivalentTo(new Item
+        {
+            Name = "Conjured Mana Cake", 
+            SellIn = -1, 
+            Quality = -1
+        });
+    }
+    
+    [Fact]
+    public void Other_Pass_In_Pass_In_All_Conditions()
+    {
+        IList<Item> items = new List<Item> { 
+            new Item
+            {
+                Name = "Conjured Mana Cake", 
+                SellIn = 0, 
+                Quality = 2
+            }
+        };
+        
+        GildedRose app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Should().BeEquivalentTo(new Item
+        {
+            Name = "Conjured Mana Cake", 
+            SellIn = -1, 
+            Quality = 0
+        });
+    }
+    
+    [Fact]
+    public void Other_Pass_In_Pass_In_1()
+    {
+        IList<Item> items = new List<Item> { 
+            new Item
+            {
+                Name = "Conjured Mana Cake", 
+                SellIn = 1, 
+                Quality = 2
+            }
+        };
+        
+        GildedRose app = new GildedRose(items);
+        
+        app.UpdateQuality();
+
+        items[0].Should().BeEquivalentTo(new Item
+        {
+            Name = "Conjured Mana Cake", 
+            SellIn = 0, 
+            Quality = 1
+        });
+    }
 }
