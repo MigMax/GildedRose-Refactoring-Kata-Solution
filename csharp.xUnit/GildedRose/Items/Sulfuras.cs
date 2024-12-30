@@ -1,11 +1,7 @@
 ﻿namespace GildedRoseKata;
 
-public class Sulfuras : Item
+public class Sulfuras(int sellIn, int quality) : Item("Sulfuras, Hand of Ragnaros", sellIn, quality)
 {
-    public Sulfuras(int sellIn, int quality) : base("Sulfuras, Hand of Ragnaros", sellIn, quality)
-    {
-    }
-
     public override void UpdateQuality()
     {
     }

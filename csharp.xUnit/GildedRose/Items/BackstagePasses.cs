@@ -1,11 +1,7 @@
 ﻿namespace GildedRoseKata;
 
-public class BackstagePasses : Item
+public class BackstagePasses(int sellIn, int quality) : Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality)
 {
-    public BackstagePasses(int sellIn, int quality) : base("Backstage passes to a TAFKAL80ETC concert", sellIn, quality)
-    {
-    }
-    
     public override void UpdateQuality()
     {
         if (Quality < 50)

@@ -1,8 +1,3 @@
 ﻿namespace GildedRoseKata;
 
-public class ManaCake : Item
-{
-    public ManaCake(int sellIn, int quality) : base("Conjured Mana Cake", sellIn, quality)
-    {
-    }
-}
+public class ManaCake(int sellIn, int quality) : Item("Conjured Mana Cake", sellIn, quality);

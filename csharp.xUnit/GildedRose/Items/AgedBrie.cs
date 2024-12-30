@@ -1,11 +1,7 @@
 ﻿namespace GildedRoseKata;
 
-public class AgedBrie : Item
+public class AgedBrie(int sellIn, int quality) : Item("Aged Brie", sellIn, quality)
 {
-    public AgedBrie(int sellIn, int quality) : base("Aged Brie", sellIn, quality)
-    {
-    }
-    
     public override void UpdateQuality()
     {
         if (Quality < 50)
